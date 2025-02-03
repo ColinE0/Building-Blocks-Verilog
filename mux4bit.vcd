@@ -1,0 +1,41 @@
+$date
+	Fri Mar 26 18:15:29 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module mux4bit_tb $end
+$var wire 8 ! Y [7:0] $end
+$var reg 8 " A [7:0] $end
+$var reg 8 # B [7:0] $end
+$var reg 1 $ C $end
+$scope module UUT $end
+$var wire 8 % A [7:0] $end
+$var wire 8 & B [7:0] $end
+$var wire 1 $ C $end
+$var reg 8 ' Y [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1010 '
+b1010 &
+b101 %
+x$
+b1010 #
+b101 "
+b1010 !
+$end
+#20
+b101 !
+b101 '
+0$
+#40
+b1010 !
+b1010 '
+1$
+#60

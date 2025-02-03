@@ -1,0 +1,207 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000000008953c0 .scope module, "mux2to1_8bit" "mux2to1_8bit" 2 3;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "A";
+    .port_info 1 /INPUT 8 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 8 "Y";
+o000000000089b818 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000000008ed220_0 .net "A", 7 0, o000000000089b818;  0 drivers
+o000000000089b848 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000000008edd60_0 .net "B", 7 0, o000000000089b848;  0 drivers
+o000000000089a948 .functor BUFZ 1, C4<z>; HiZ drive
+v00000000008ee260_0 .net "C", 0 0, o000000000089a948;  0 drivers
+v00000000008ed2c0_0 .net "Y", 7 0, L_00000000008edcc0;  1 drivers
+L_00000000008ee3a0 .part o000000000089b818, 7, 1;
+L_00000000008eda40 .part o000000000089b848, 7, 1;
+L_00000000008ed4a0 .part o000000000089b818, 6, 1;
+L_00000000008ed540 .part o000000000089b848, 6, 1;
+L_00000000008ed5e0 .part o000000000089b818, 5, 1;
+L_00000000008ee8a0 .part o000000000089b848, 5, 1;
+L_00000000008ed680 .part o000000000089b818, 4, 1;
+L_00000000008ee080 .part o000000000089b848, 4, 1;
+L_00000000008ed860 .part o000000000089b818, 3, 1;
+L_00000000008ee120 .part o000000000089b848, 3, 1;
+L_00000000008ed900 .part o000000000089b818, 2, 1;
+L_00000000008edb80 .part o000000000089b848, 2, 1;
+L_00000000008ee440 .part o000000000089b818, 1, 1;
+L_00000000008ee9e0 .part o000000000089b848, 1, 1;
+L_00000000008edc20 .part o000000000089b818, 0, 1;
+L_00000000008edf40 .part o000000000089b848, 0, 1;
+LS_00000000008edcc0_0_0 .concat8 [ 1 1 1 1], L_00000000008f8600, L_00000000008f7aa0, L_00000000008f7a30, L_00000000008f8670;
+LS_00000000008edcc0_0_4 .concat8 [ 1 1 1 1], L_00000000008f7fe0, L_00000000008f7c60, L_0000000000893a10, L_0000000000893a80;
+L_00000000008edcc0 .concat8 [ 4 4 0 0], LS_00000000008edcc0_0_0, LS_00000000008edcc0_0_4;
+S_0000000000895550 .scope generate, "genblk1[0]" "genblk1[0]" 2 19, 2 19 0, S_00000000008953c0;
+ .timescale 0 0;
+P_0000000000897990 .param/l "i" 0 2 19, +C4<00>;
+S_0000000000862760 .scope module, "U0" "mux2to1" 2 21, 3 1 0, S_0000000000895550;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+L_00000000008f83d0 .functor NOT 1, o000000000089a948, C4<0>, C4<0>, C4<0>;
+L_00000000008f82f0 .functor AND 1, L_00000000008edc20, L_00000000008f83d0, C4<1>, C4<1>;
+L_00000000008f8590 .functor AND 1, L_00000000008edf40, o000000000089a948, C4<1>, C4<1>;
+L_00000000008f8600 .functor OR 1, L_00000000008f82f0, L_00000000008f8590, C4<0>, C4<0>;
+v0000000000891720_0 .net "A", 0 0, L_00000000008edc20;  1 drivers
+v0000000000892300_0 .net "B", 0 0, L_00000000008edf40;  1 drivers
+v0000000000891cc0_0 .net "C", 0 0, o000000000089a948;  alias, 0 drivers
+v0000000000891a40_0 .net "Y", 0 0, L_00000000008f8600;  1 drivers
+v0000000000893340_0 .net *"_ivl_0", 0 0, L_00000000008f83d0;  1 drivers
+v0000000000891860_0 .net *"_ivl_2", 0 0, L_00000000008f82f0;  1 drivers
+v0000000000891900_0 .net *"_ivl_4", 0 0, L_00000000008f8590;  1 drivers
+S_00000000008628f0 .scope generate, "genblk1[1]" "genblk1[1]" 2 19, 2 19 0, S_00000000008953c0;
+ .timescale 0 0;
+P_0000000000897350 .param/l "i" 0 2 19, +C4<01>;
+S_0000000000862a80 .scope module, "U0" "mux2to1" 2 21, 3 1 0, S_00000000008628f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+L_00000000008f8360 .functor NOT 1, o000000000089a948, C4<0>, C4<0>, C4<0>;
+L_00000000008f8520 .functor AND 1, L_00000000008ee440, L_00000000008f8360, C4<1>, C4<1>;
+L_00000000008f8130 .functor AND 1, L_00000000008ee9e0, o000000000089a948, C4<1>, C4<1>;
+L_00000000008f7aa0 .functor OR 1, L_00000000008f8520, L_00000000008f8130, C4<0>, C4<0>;
+v0000000000891d60_0 .net "A", 0 0, L_00000000008ee440;  1 drivers
+v0000000000892260_0 .net "B", 0 0, L_00000000008ee9e0;  1 drivers
+v0000000000891f40_0 .net "C", 0 0, o000000000089a948;  alias, 0 drivers
+v0000000000891fe0_0 .net "Y", 0 0, L_00000000008f7aa0;  1 drivers
+v0000000000892d00_0 .net *"_ivl_0", 0 0, L_00000000008f8360;  1 drivers
+v0000000000892e40_0 .net *"_ivl_2", 0 0, L_00000000008f8520;  1 drivers
+v0000000000891e00_0 .net *"_ivl_4", 0 0, L_00000000008f8130;  1 drivers
+S_00000000008ec5f0 .scope generate, "genblk1[2]" "genblk1[2]" 2 19, 2 19 0, S_00000000008953c0;
+ .timescale 0 0;
+P_0000000000897790 .param/l "i" 0 2 19, +C4<010>;
+S_00000000008ec780 .scope module, "U0" "mux2to1" 2 21, 3 1 0, S_00000000008ec5f0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+L_00000000008f7db0 .functor NOT 1, o000000000089a948, C4<0>, C4<0>, C4<0>;
+L_00000000008f7bf0 .functor AND 1, L_00000000008ed900, L_00000000008f7db0, C4<1>, C4<1>;
+L_00000000008f7e20 .functor AND 1, L_00000000008edb80, o000000000089a948, C4<1>, C4<1>;
+L_00000000008f7a30 .functor OR 1, L_00000000008f7bf0, L_00000000008f7e20, C4<0>, C4<0>;
+v0000000000892da0_0 .net "A", 0 0, L_00000000008ed900;  1 drivers
+v00000000008928a0_0 .net "B", 0 0, L_00000000008edb80;  1 drivers
+v00000000008923a0_0 .net "C", 0 0, o000000000089a948;  alias, 0 drivers
+v00000000008933e0_0 .net "Y", 0 0, L_00000000008f7a30;  1 drivers
+v00000000008930c0_0 .net *"_ivl_0", 0 0, L_00000000008f7db0;  1 drivers
+v0000000000893200_0 .net *"_ivl_2", 0 0, L_00000000008f7bf0;  1 drivers
+v0000000000892440_0 .net *"_ivl_4", 0 0, L_00000000008f7e20;  1 drivers
+S_00000000008ec910 .scope generate, "genblk1[3]" "genblk1[3]" 2 19, 2 19 0, S_00000000008953c0;
+ .timescale 0 0;
+P_0000000000897450 .param/l "i" 0 2 19, +C4<011>;
+S_00000000008ecaa0 .scope module, "U0" "mux2to1" 2 21, 3 1 0, S_00000000008ec910;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+L_00000000008f8050 .functor NOT 1, o000000000089a948, C4<0>, C4<0>, C4<0>;
+L_00000000008f8280 .functor AND 1, L_00000000008ed860, L_00000000008f8050, C4<1>, C4<1>;
+L_00000000008f80c0 .functor AND 1, L_00000000008ee120, o000000000089a948, C4<1>, C4<1>;
+L_00000000008f8670 .functor OR 1, L_00000000008f8280, L_00000000008f80c0, C4<0>, C4<0>;
+v0000000000892940_0 .net "A", 0 0, L_00000000008ed860;  1 drivers
+v00000000008924e0_0 .net "B", 0 0, L_00000000008ee120;  1 drivers
+v0000000000892580_0 .net "C", 0 0, o000000000089a948;  alias, 0 drivers
+v00000000008926c0_0 .net "Y", 0 0, L_00000000008f8670;  1 drivers
+v00000000008929e0_0 .net *"_ivl_0", 0 0, L_00000000008f8050;  1 drivers
+v0000000000892bc0_0 .net *"_ivl_2", 0 0, L_00000000008f8280;  1 drivers
+v0000000000892800_0 .net *"_ivl_4", 0 0, L_00000000008f80c0;  1 drivers
+S_00000000008ecc30 .scope generate, "genblk1[4]" "genblk1[4]" 2 19, 2 19 0, S_00000000008953c0;
+ .timescale 0 0;
+P_0000000000897b10 .param/l "i" 0 2 19, +C4<0100>;
+S_00000000008ecdc0 .scope module, "U0" "mux2to1" 2 21, 3 1 0, S_00000000008ecc30;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+L_00000000008f8440 .functor NOT 1, o000000000089a948, C4<0>, C4<0>, C4<0>;
+L_00000000008f81a0 .functor AND 1, L_00000000008ed680, L_00000000008f8440, C4<1>, C4<1>;
+L_00000000008f84b0 .functor AND 1, L_00000000008ee080, o000000000089a948, C4<1>, C4<1>;
+L_00000000008f7fe0 .functor OR 1, L_00000000008f81a0, L_00000000008f84b0, C4<0>, C4<0>;
+v00000000008932a0_0 .net "A", 0 0, L_00000000008ed680;  1 drivers
+v0000000000893520_0 .net "B", 0 0, L_00000000008ee080;  1 drivers
+v0000000000891680_0 .net "C", 0 0, o000000000089a948;  alias, 0 drivers
+v000000000088c3c0_0 .net "Y", 0 0, L_00000000008f7fe0;  1 drivers
+v000000000088bce0_0 .net *"_ivl_0", 0 0, L_00000000008f8440;  1 drivers
+v000000000088be20_0 .net *"_ivl_2", 0 0, L_00000000008f81a0;  1 drivers
+v00000000008ed720_0 .net *"_ivl_4", 0 0, L_00000000008f84b0;  1 drivers
+S_00000000008eef60 .scope generate, "genblk1[5]" "genblk1[5]" 2 19, 2 19 0, S_00000000008953c0;
+ .timescale 0 0;
+P_00000000008979d0 .param/l "i" 0 2 19, +C4<0101>;
+S_00000000008ef0f0 .scope module, "U0" "mux2to1" 2 21, 3 1 0, S_00000000008eef60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+L_0000000000893b60 .functor NOT 1, o000000000089a948, C4<0>, C4<0>, C4<0>;
+L_0000000000893bd0 .functor AND 1, L_00000000008ed5e0, L_0000000000893b60, C4<1>, C4<1>;
+L_00000000008f7f70 .functor AND 1, L_00000000008ee8a0, o000000000089a948, C4<1>, C4<1>;
+L_00000000008f7c60 .functor OR 1, L_0000000000893bd0, L_00000000008f7f70, C4<0>, C4<0>;
+v00000000008ed360_0 .net "A", 0 0, L_00000000008ed5e0;  1 drivers
+v00000000008eee40_0 .net "B", 0 0, L_00000000008ee8a0;  1 drivers
+v00000000008ed9a0_0 .net "C", 0 0, o000000000089a948;  alias, 0 drivers
+v00000000008ed040_0 .net "Y", 0 0, L_00000000008f7c60;  1 drivers
+v00000000008eebc0_0 .net *"_ivl_0", 0 0, L_0000000000893b60;  1 drivers
+v00000000008ed0e0_0 .net *"_ivl_2", 0 0, L_0000000000893bd0;  1 drivers
+v00000000008eec60_0 .net *"_ivl_4", 0 0, L_00000000008f7f70;  1 drivers
+S_00000000008f7290 .scope generate, "genblk1[6]" "genblk1[6]" 2 19, 2 19 0, S_00000000008953c0;
+ .timescale 0 0;
+P_0000000000897110 .param/l "i" 0 2 19, +C4<0110>;
+S_00000000008f7420 .scope module, "U0" "mux2to1" 2 21, 3 1 0, S_00000000008f7290;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+L_0000000000893850 .functor NOT 1, o000000000089a948, C4<0>, C4<0>, C4<0>;
+L_00000000008937e0 .functor AND 1, L_00000000008ed4a0, L_0000000000893850, C4<1>, C4<1>;
+L_0000000000893cb0 .functor AND 1, L_00000000008ed540, o000000000089a948, C4<1>, C4<1>;
+L_0000000000893a10 .functor OR 1, L_00000000008937e0, L_0000000000893cb0, C4<0>, C4<0>;
+v00000000008ed180_0 .net "A", 0 0, L_00000000008ed4a0;  1 drivers
+v00000000008ee620_0 .net "B", 0 0, L_00000000008ed540;  1 drivers
+v00000000008ee1c0_0 .net "C", 0 0, o000000000089a948;  alias, 0 drivers
+v00000000008edae0_0 .net "Y", 0 0, L_0000000000893a10;  1 drivers
+v00000000008ed400_0 .net *"_ivl_0", 0 0, L_0000000000893850;  1 drivers
+v00000000008ee760_0 .net *"_ivl_2", 0 0, L_00000000008937e0;  1 drivers
+v00000000008eed00_0 .net *"_ivl_4", 0 0, L_0000000000893cb0;  1 drivers
+S_00000000008f75b0 .scope generate, "genblk1[7]" "genblk1[7]" 2 19, 2 19 0, S_00000000008953c0;
+ .timescale 0 0;
+P_0000000000897890 .param/l "i" 0 2 19, +C4<0111>;
+S_00000000008f7740 .scope module, "U0" "mux2to1" 2 21, 3 1 0, S_00000000008f75b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+L_0000000000893af0 .functor NOT 1, o000000000089a948, C4<0>, C4<0>, C4<0>;
+L_00000000008939a0 .functor AND 1, L_00000000008ee3a0, L_0000000000893af0, C4<1>, C4<1>;
+L_0000000000893d90 .functor AND 1, L_00000000008eda40, o000000000089a948, C4<1>, C4<1>;
+L_0000000000893a80 .functor OR 1, L_00000000008939a0, L_0000000000893d90, C4<0>, C4<0>;
+v00000000008ee300_0 .net "A", 0 0, L_00000000008ee3a0;  1 drivers
+v00000000008ed7c0_0 .net "B", 0 0, L_00000000008eda40;  1 drivers
+v00000000008ee800_0 .net "C", 0 0, o000000000089a948;  alias, 0 drivers
+v00000000008ecfa0_0 .net "Y", 0 0, L_0000000000893a80;  1 drivers
+v00000000008ede00_0 .net *"_ivl_0", 0 0, L_0000000000893af0;  1 drivers
+v00000000008ee4e0_0 .net *"_ivl_2", 0 0, L_00000000008939a0;  1 drivers
+v00000000008eeda0_0 .net *"_ivl_4", 0 0, L_0000000000893d90;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux2to1_8bit.v";
+    "./mux2to1.v";

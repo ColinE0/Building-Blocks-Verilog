@@ -1,0 +1,46 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000000000899b60 .scope module, "decoder1to2_test" "decoder1to2_test" 2 4;
+ .timescale -9 -9;
+v00000000010856b0_0 .var "A", 0 0;
+v0000000001085750_0 .net "Y", 1 0, L_00000000010857f0;  1 drivers
+S_0000000001085480 .scope module, "UUT" "decoder1to2" 2 8, 3 1 0, S_0000000000899b60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /OUTPUT 2 "Y";
+L_0000000000897d20 .functor NOT 1, v00000000010856b0_0, C4<0>, C4<0>, C4<0>;
+L_0000000001052f20 .functor BUFZ 1, v00000000010856b0_0, C4<0>, C4<0>, C4<0>;
+v000000000089e4a0_0 .net "A", 0 0, v00000000010856b0_0;  1 drivers
+v0000000000897bc0_0 .net "Y", 1 0, L_00000000010857f0;  alias, 1 drivers
+v0000000001052b60_0 .net *"_ivl_2", 0 0, L_0000000000897d20;  1 drivers
+v0000000001085610_0 .net *"_ivl_8", 0 0, L_0000000001052f20;  1 drivers
+L_00000000010857f0 .concat8 [ 1 1 0 0], L_0000000001052f20, L_0000000000897d20;
+    .scope S_0000000000899b60;
+T_0 ;
+    %vpi_call 2 11 "$display", "Start of test." {0 0 0};
+    %vpi_call 2 12 "$dumpfile", "decoder1to2.vcd" {0 0 0};
+    %vpi_call 2 13 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000000000899b60 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000000010856b0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 14 "$display", v00000000010856b0_0, " = %b", v0000000001085750_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000000010856b0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 15 "$display", v00000000010856b0_0, " = %b", v0000000001085750_0 {0 0 0};
+    %vpi_call 2 16 "$display", "End of Test." {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "decoder1to2_test.v";
+    "./decoder1to2.v";

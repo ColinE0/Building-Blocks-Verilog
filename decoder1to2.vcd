@@ -1,0 +1,29 @@
+$date
+	Sun Mar 28 20:05:21 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module decoder1to2_test $end
+$var wire 2 ! Y [1:0] $end
+$var reg 1 " A $end
+$scope module UUT $end
+$var wire 1 " A $end
+$var wire 2 # Y [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b10 #
+0"
+b10 !
+$end
+#10
+b1 !
+b1 #
+1"
+#20

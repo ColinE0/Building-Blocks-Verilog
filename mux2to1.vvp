@@ -1,0 +1,90 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000000001135d70 .scope module, "mux2to1_tb" "mux2to1_tb" 2 4;
+ .timescale -9 -9;
+v000000000091abf0_0 .var "A", 0 0;
+v000000000091ac90_0 .var "B", 0 0;
+v000000000091ad30_0 .var "C", 0 0;
+v000000000091add0_0 .net "Y", 0 0, L_000000000091ae70;  1 drivers
+S_0000000001135f00 .scope begin, "$ivl_for_loop0" "$ivl_for_loop0" 2 24, 2 24 0, S_0000000001135d70;
+ .timescale -9 -9;
+v0000000000919720_0 .var/i "i", 31 0;
+S_0000000001136090 .scope module, "UUT" "mux2to1" 2 17, 3 1 0, S_0000000001135d70;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+L_0000000001102dd0 .functor NOT 1, v000000000091ad30_0, C4<0>, C4<0>, C4<0>;
+L_0000000001102f30 .functor AND 1, v000000000091abf0_0, L_0000000001102dd0, C4<1>, C4<1>;
+L_0000000000919290 .functor AND 1, v000000000091ac90_0, v000000000091ad30_0, C4<1>, C4<1>;
+L_000000000091ae70 .functor OR 1, L_0000000001102f30, L_0000000000919290, C4<0>, C4<0>;
+v0000000001102910_0 .net "A", 0 0, v000000000091abf0_0;  1 drivers
+v000000000091a830_0 .net "B", 0 0, v000000000091ac90_0;  1 drivers
+v000000000091a8d0_0 .net "C", 0 0, v000000000091ad30_0;  1 drivers
+v000000000091a970_0 .net "Y", 0 0, L_000000000091ae70;  alias, 1 drivers
+v000000000091aa10_0 .net *"_ivl_0", 0 0, L_0000000001102dd0;  1 drivers
+v000000000091aab0_0 .net *"_ivl_2", 0 0, L_0000000001102f30;  1 drivers
+v000000000091ab50_0 .net *"_ivl_4", 0 0, L_0000000000919290;  1 drivers
+    .scope S_0000000001135d70;
+T_0 ;
+    %vpi_call 2 21 "$dumpfile", "mux2to1.vcd" {0 0 0};
+    %vpi_call 2 22 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000000001135d70 {0 0 0};
+    %fork t_1, S_0000000001135f00;
+    %jmp t_0;
+    .scope S_0000000001135f00;
+t_1 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0000000000919720_0, 0, 32;
+T_0.0 ;
+    %load/vec4 v0000000000919720_0;
+    %cmpi/s 8, 0, 32;
+    %jmp/0xz T_0.1, 5;
+    %load/vec4 v0000000000919720_0;
+    %pad/s 3;
+    %split/vec4 1;
+    %store/vec4 v000000000091ad30_0, 0, 1;
+    %split/vec4 1;
+    %store/vec4 v000000000091ac90_0, 0, 1;
+    %store/vec4 v000000000091abf0_0, 0, 1;
+    %delay 10, 0;
+    %load/vec4 v000000000091add0_0;
+    %load/vec4 v000000000091abf0_0;
+    %load/vec4 v000000000091ad30_0;
+    %inv;
+    %and;
+    %load/vec4 v000000000091ac90_0;
+    %load/vec4 v000000000091ad30_0;
+    %and;
+    %or;
+    %cmp/ne;
+    %jmp/0xz  T_0.2, 4;
+    %vpi_call 2 28 "$display", "Test case FAILED for minterm %d", v0000000000919720_0 {0 0 0};
+    %jmp T_0.3;
+T_0.2 ;
+    %vpi_call 2 31 "$display", "test case passed for minterm %d", v0000000000919720_0 {0 0 0};
+T_0.3 ;
+    %load/vec4 v0000000000919720_0;
+    %addi 1, 0, 32;
+    %store/vec4 v0000000000919720_0, 0, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %end;
+    .scope S_0000000001135d70;
+t_0 %join;
+    %vpi_call 2 35 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux2to1_tb.v";
+    "./mux2to1.v";

@@ -1,0 +1,65 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000000009052b0 .scope module, "mux2to1" "mux2to1" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 1 "Y";
+o0000000000907018 .functor BUFZ 1, C4<z>; HiZ drive
+L_00000000008d3020 .functor NOT 1, o0000000000907018, C4<0>, C4<0>, C4<0>;
+o0000000000906fb8 .functor BUFZ 1, C4<z>; HiZ drive
+L_00000000008d3180 .functor AND 1, o0000000000906fb8, L_00000000008d3020, C4<1>, C4<1>;
+o0000000000906fe8 .functor BUFZ 1, C4<z>; HiZ drive
+L_00000000009029f0 .functor AND 1, o0000000000906fe8, o0000000000907018, C4<1>, C4<1>;
+L_0000000000902a60 .functor OR 1, L_00000000008d3180, L_00000000009029f0, C4<0>, C4<0>;
+v00000000009055d0_0 .net "A", 0 0, o0000000000906fb8;  0 drivers
+v00000000008d2b60_0 .net "B", 0 0, o0000000000906fe8;  0 drivers
+v0000000000905670_0 .net "C", 0 0, o0000000000907018;  0 drivers
+v000000000126b820_0 .net "Y", 0 0, L_0000000000902a60;  1 drivers
+v000000000126b8c0_0 .net *"_ivl_0", 0 0, L_00000000008d3020;  1 drivers
+v000000000126b960_0 .net *"_ivl_2", 0 0, L_00000000008d3180;  1 drivers
+v000000000126ba00_0 .net *"_ivl_4", 0 0, L_00000000009029f0;  1 drivers
+S_0000000000905440 .scope module, "mux4bit" "mux4bit" 3 3;
+ .timescale 0 0;
+    .port_info 0 /INPUT 8 "A";
+    .port_info 1 /INPUT 8 "B";
+    .port_info 2 /INPUT 1 "C";
+    .port_info 3 /OUTPUT 8 "Y";
+o00000000009071c8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000000000126baa0_0 .net "A", 7 0, o00000000009071c8;  0 drivers
+o00000000009071f8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v000000000126bb40_0 .net "B", 7 0, o00000000009071f8;  0 drivers
+o0000000000907228 .functor BUFZ 1, C4<z>; HiZ drive
+v00000000009018a0_0 .net "C", 0 0, o0000000000907228;  0 drivers
+v0000000000901940_0 .var "Y", 7 0;
+E_000000000126bf50 .event edge, v00000000009018a0_0, v000000000126baa0_0, v000000000126bb40_0;
+    .scope S_0000000000905440;
+T_0 ;
+    %wait E_000000000126bf50;
+    %load/vec4 v00000000009018a0_0;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_0.0, 4;
+    %load/vec4 v000000000126baa0_0;
+    %store/vec4 v0000000000901940_0, 0, 8;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v000000000126bb40_0;
+    %store/vec4 v0000000000901940_0, 0, 8;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "./mux2to1.v";
+    "mux4bit.v";

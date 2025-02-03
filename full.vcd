@@ -1,0 +1,65 @@
+$date
+	Mon Feb 15 04:18:54 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module full_test $end
+$var wire 1 ! S $end
+$var wire 1 " Cout $end
+$var reg 1 # A $end
+$var reg 1 $ B $end
+$var reg 1 % Cin $end
+$scope module UUT $end
+$var wire 1 # A $end
+$var wire 1 $ B $end
+$var wire 1 % Cin $end
+$var wire 1 " Cout $end
+$var wire 1 ! S $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0%
+0$
+0#
+0"
+0!
+$end
+#100
+1!
+1"
+1%
+#200
+1!
+1"
+1$
+0%
+#300
+0!
+0"
+1%
+#400
+1!
+1"
+1#
+0$
+0%
+#500
+0!
+0"
+1%
+#600
+0!
+0"
+1$
+0%
+#700
+1!
+1"
+1%
+#800
