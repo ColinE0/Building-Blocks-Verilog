@@ -1,28 +1,24 @@
-module alu_rtl (A,B,S,E,W);
+// alu_rtl.v
+// 8-bit add / subtract unit. E enables the output, S selects subtract.
 
-//INPUTS
-input [7:0] A;
-input [7:0] B;
+module alu_rtl (A, B, S, E, W);
 
-//CONTROL INPUTS
-input S;
-input E;
+    // Inputs
+    input  [7:0] A;
+    input  [7:0] B;
 
-//DATA OUTPUTS
-output reg [7:0] W = 0;
+    // Control inputs
+    input        S;          // 0 = add, 1 = subtract
+    input        E;          // 0 = output forced to 0
 
-//OPERATION
-always @(*) begin
-    if (E == 1) begin 
-        if (S == 0) begin
-            W <= A + B;
-        end 
-        else begin
-            W <= A - B;
-        end
-    end 
-    else begin 
-        W <= 0;
-    end 
-end
+    // Data output
+    output reg [7:0] W;
+
+    // Operation
+    always @(*) begin
+        if (!E)      W = 8'd0;
+        else if (!S) W = A + B;
+        else         W = A - B;
+    end
+
 endmodule

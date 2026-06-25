@@ -1,0 +1,6 @@
+# Simulation build artifacts
+*.out
+*.vvp
+*.vcd
+sim
+a.out
