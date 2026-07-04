@@ -41,7 +41,7 @@ vvp sim
 
 ## Status
 Most blocks are small, self-contained, and reusable. The serial-divider subsystem
-(`divider.v` plus `control` and `div`) is a work in progress; see `CLEANUP.md`.
+(`divider.v` plus `control` and `div`) is a work in progress.
 
 ## License
 MIT License. See [LICENSE](LICENSE) for details.
