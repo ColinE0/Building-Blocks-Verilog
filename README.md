@@ -7,6 +7,10 @@ A library of digital building blocks written in Verilog, from basic gates up to 
 shift register, and an accumulator, each with its own testbench. Built while learning
 digital design, and cleaned up so the pieces are reusable.
 
+## SystemVerilog versions
+[`systemverilog/`](systemverilog/README.md) has a SystemVerilog version of every block
+here, with self-checking testbenches. Run them all with `python systemverilog/run_tests.py`.
+
 ## Index
 | Category | Modules |
 |----------|---------|
