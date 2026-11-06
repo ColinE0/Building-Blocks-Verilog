@@ -1,4 +1,5 @@
 # Verilog Building Blocks
+![CI](https://github.com/ColinE0/Building-Blocks-Verilog/actions/workflows/ci.yml/badge.svg)
 ![Verilog](https://img.shields.io/badge/HDL-Verilog-blue)
 ![Simulator](https://img.shields.io/badge/Sim-Icarus_Verilog-2C3E50)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
